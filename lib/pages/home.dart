@@ -28,6 +28,36 @@ class HomePage extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding: EdgeInsets.all(15),
+                  hintText: 'Search mango',
+                  hintStyle: TextStyle(
+                     color: Colors.orange,
+                     fontSize: 14
+                  ),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: SvgPicture.asset('assets/icons/Search.svg'),
+                  ),
+                  suffixIcon: Container(
+                    width: 100,
+                    child: IntrinsicHeight(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          VerticalDivider(
+                            color: Colors.black,
+                            indent: 10,
+                            endIndent: 10,
+                            thickness: 0.1,
+                      
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: SvgPicture.asset('assets/icons/Filter.svg'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: BorderSide.none
@@ -64,7 +94,7 @@ class HomePage extends StatelessWidget {
           ),
           decoration: BoxDecoration(
               color: Color.fromARGB(255, 241, 241, 241),
-              borderRadius: BorderRadius.circular(0)),
+              borderRadius: BorderRadius.circular(50)),
         ),
       ),
       actions: [
@@ -81,7 +111,7 @@ class HomePage extends StatelessWidget {
             ),
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 241, 241, 241),
-                borderRadius: BorderRadius.circular(0)),
+                borderRadius: BorderRadius.circular(50)),
           ),
         ),
       ],
