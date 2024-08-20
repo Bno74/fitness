@@ -2,6 +2,7 @@ import 'package:fitness/models/category_model.dart';
 import 'package:fitness/models/diet_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -55,7 +56,7 @@ class _HomePageState extends State<HomePage> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 250),
+                  padding: const EdgeInsets.only(right: 256),
                   child: Text(
                     'Recent Picks',
                     style: TextStyle(
@@ -68,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                   height: 15,
                 ),
                 Container(
-                  color: Colors.blue,
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   height: 150,
                   child: ListView.separated(
                       itemBuilder: (context, index) {
@@ -78,6 +79,56 @@ class _HomePageState extends State<HomePage> {
                             color: diets[index].boxColor,
                             borderRadius: BorderRadius.circular(20)
                           ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SvgPicture.asset(diets[index].iconPath),
+                              Text(
+                                diets[index].name,
+                                style:TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                 diets[index].level + ' | ' + diets[index].duration + ' | ' + diets[index].calorie,
+                                 style: TextStyle(
+                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                  fontSize: 13,
+                                   fontWeight: FontWeight.w400
+                                 ),
+
+                              ),
+                              Container(
+                                height: 20,
+                                width: 100,
+                                child: Center(
+                                  child: Text(
+                                    'View',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14,
+                                    ),
+
+
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(255, 102, 180, 245),
+                                      Colors.blue
+                                    ]
+                                    ),
+                                    borderRadius: BorderRadius.circular(50)
+
+                                ),
+                              )
+
+                            ],
+                          )
 
                         );
                       },
@@ -85,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                       itemCount: diets.length,
                       scrollDirection: Axis.horizontal,
                       padding: EdgeInsets.only(
-                        left: 20;
+                        left: 20,
                         right: 20
                       ),
                 )
